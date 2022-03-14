@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "app_id": "app_b9207d5b-6a18-4f92-96e6-2d66ac9dccfa",
+      "org_id": "orga_2816e5a4-5fbe-46b1-b3bd-f771a017eab5",
+      "deploy_url": "https://push-n2-par-clevercloud-customers.services.clever-cloud.com/app_b9207d5b-6a18-4f92-96e6-2d66ac9dccfa.git",
+      "name": "inclusion-prod",
+      "alias": "inclusion-prod"
+    }
+  ]
+}

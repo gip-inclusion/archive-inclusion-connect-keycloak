@@ -1,0 +1,21 @@
+services:
+  keycloak:
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      KEYCLOAK_USER: ${KEYCLOAK_USER}
+      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_FROM_DISPLAY_NAME: ${SMTP_FROM_DISPLAY_NAME}
+      SMTP_FROM: ${SMTP_FROM}
+      SMTP_REPLYTO_DISPLAY_NAME: ${SMTP_REPLYTO_DISPLAY_NAME}
+      SMTP_REPLYTO: ${SMTP_REPLYTO}
+      SMTP_SSL: ${SMTP_SSL}
+      SMTP_AUTH: ${SMTP_AUTH}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+    # volumes:
+    #   - logvolume01:/var/log
