@@ -21,7 +21,7 @@
                     <label for="password-new" class="${properties.kcLabelClass!}">${msg("passwordNew")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input onKeyPress="passwordCheck('password-new')" onKeyUp="passwordCheck('password-new')" type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" autofocus autocomplete="new-password" /><img onclick="showPassword('password-new')" id="show-password" height="25" src="${url.resourcesPath}/img/hide.png">
+                    <input onKeyPress="passwordCheck('password-new')" onKeyUp="passwordCheck('password-new')" type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" autofocus autocomplete="new-password" /><img onclick="showPassword('password-new')" id="show-password-new" height="25" src="${url.resourcesPath}/img/hide.png">
                 </div>
             </div>
 
