@@ -10,10 +10,10 @@
             
             <div id="password-state">
                 <span>Créer un mot de passe avec au moins:</span>
-                <img id="length-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.png"><img id="length-criteria" src="${url.resourcesPath}/img/feedback-success-sign.png"><span>8 caractères minimum</span>
-                <img id="number-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.png"><img id="number-criteria" src="${url.resourcesPath}/img/feedback-success-sign.png"><span>1 chiffre</span>
-                <img id="capital-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.png"><img id="capital-criteria" src="${url.resourcesPath}/img/feedback-success-sign.png"><span>1 majuscule</span>
-                <img id="character-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.png"><img id="character-criteria" src="${url.resourcesPath}/img/feedback-success-sign.png"><span>1 caractère spécial (ex: & é @ -)</span>
+                <img id="length-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="length-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>8 caractères minimum</span>
+                <img id="number-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="number-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>1 chiffre</span>
+                <img id="capital-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="capital-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>1 majuscule</span>
+                <img id="character-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="character-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>1 caractère spécial (ex: & é @ -)</span>
             </div>
 
             <div class="${properties.kcFormGroupClass!}">
@@ -21,7 +21,7 @@
                     <label for="password-new" class="${properties.kcLabelClass!}">${msg("passwordNew")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input onKeyPress="passwordCheck('password-new')" onKeyUp="passwordCheck('password-new')" type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" autofocus autocomplete="new-password" /><img onclick="showPassword('password-new')" id="show-password" height="25" src="${url.resourcesPath}/img/hide.png">
+                    <input onKeyPress="passwordCheck('password-new')" onKeyUp="passwordCheck('password-new')" type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" autofocus autocomplete="new-password" /><img onclick="showPassword('password-new')" id="show-password-new" height="25" src="${url.resourcesPath}/img/hide.png">
                 </div>
             </div>
 
