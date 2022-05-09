@@ -62,7 +62,7 @@
         {
             
             if (sParameterName[1] == 'dora') {
-                document.getElementById("img-from").src="https://i.goopics.net/mtn3xo.png";
+                document.getElementById("img-from").src="https://i.goopics.net/pnj9ji.png";
             } else if (sParameterName[1] == 'communaute') {
                 document.getElementById("img-from").src="https://i.goopics.net/5w86fe.png";
             } else if (sParameterName[1] == 'emplois') {
