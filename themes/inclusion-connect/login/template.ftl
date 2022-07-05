@@ -39,7 +39,7 @@
 <body class="${properties.kcBodyClass!}">
   <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
-      <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}"><img id="logo-ministere" src="${url.resourcesPath}/img/logo-ministere.png"></div>
+      <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}"><img id="logo-ministere" src="${url.resourcesPath}/img/logo-ministere.svg"></div>
     </div>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
       <header class="${properties.kcFormHeaderClass!}">
