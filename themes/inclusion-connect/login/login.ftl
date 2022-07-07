@@ -81,7 +81,6 @@
         var sParameterName = sURLVariables[i].split('=');
         if (sParameterName[0] == 'from') 
         {
-            
             if (sParameterName[1] == 'dora') {
                 document.getElementById("img-from").src="https://i.goopics.net/pnj9ji.png";
                 localStorage.setItem("from", "dora");
