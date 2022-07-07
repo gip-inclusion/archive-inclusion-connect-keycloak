@@ -142,16 +142,5 @@
                 document.getElementById("img-from").src="";
             }
         }
-        if ("pass" in localStorage) {
-            var elements = document.getElementsByClassName("pre-register");
-            for (var i = 0, len = elements.length; i < len; i++) {
-                elements[i].style.display = "none";
-            }
-
-            var elements = document.getElementsByClassName("register-form");
-            for (var i = 0, len = elements.length; i < len; i++) {
-                elements[i].style.display = "block";
-            }
-        }
     }
 </script>

@@ -83,14 +83,10 @@
         {
             if (sParameterName[1] == 'dora') {
                 document.getElementById("img-from").src="https://i.goopics.net/pnj9ji.png";
-                localStorage.setItem("from", "dora");
             } else if (sParameterName[1] == 'communaute') {
                 document.getElementById("img-from").src="https://i.goopics.net/5w86fe.png";
-                localStorage.setItem("from", "communaute");
             } else if (sParameterName[1] == 'emplois') {
                 document.getElementById("img-from").src="https://i.goopics.net/fyzv6q.png";
-                localStorage.setItem("from", "emplois");
-
             } else {
                 document.getElementById("img-from").src="";
             }
