@@ -9,10 +9,37 @@ body {
   background: #ffffff !important;
 }
 
+.alert{
+  text-align: left;
+  font-size: 14px;
+  border-radius: .25rem;
+  border: 0 solid transparent;
+  padding: 1rem 1rem;
+}
+
+.alert p {
+  color: #000638 !important;
+  margin: 0 0 0;
+}
+
 .alert-error {
-  background-color: #ffffff;
-  border-color: #cc0000;
-  color: #333333;
+  border-left: 5px solid #ff5655 !important;
+  background-color: #fff2f2 !important;
+}
+
+.alert-warning {
+  border-left: 5px solid #fc5d00 !important;
+  background-color: #fff2e9 !important;
+}
+
+.alert-success {
+  border-left:5px solid #038800!important;
+  background-color:#e0f7e9!important
+}
+
+.alert-info {
+  border-left: 5px solid #000638 !important;
+  background-color: #f2f3f5 !important;
 }
 
 #kc-locale ul {
