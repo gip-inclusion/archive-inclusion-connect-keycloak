@@ -1,28 +1,14 @@
-# Keycloak
+# Itou - Inclusion Connect
 
-## Environment variables
+> Inclusion Connect est un Single Sign-On (SSO).
+> Autrement dit c'est un service d'authentification qui permet à un utilisateur d'utiliser les mêmes
+> informations d'identification (email et mot de passe) pour accéder à plusieurs applications.
 
-```yaml
-KEYCLOAK_USER: user
-KEYCLOAK_PASSWORD: password
+## Liste des services utilisant Inclusion Connect
 
-SMTP_HOST: smtp.example.com
-SMTP_PORT: 465
-SMTP_FROM_DISPLAY_NAME: Inclusion Connect
-SMTP_FROM: foo@example.com
-SMTP_REPLYTO_DISPLAY_NAME: Inclusion Connect
-SMTP_REPLYTO: no-reply@example.com
-SMTP_SSL: true
-SMTP_AUTH: true
-SMTP_USER: user
-SMTP_PASSWORD: password
-```
+- [Les emplois de l'Inclusion](https://emplois.inclusion.beta.gouv.fr)
 
+## Documentation
 
-## Running on local host
-
-```bash
-cp .env.template .env
-vim .env
-docker-compose up
-```
+Pour lire comment intégrer Inclusion Connect à votre service ou comment développer et améliorer Inclusion Connect,
+[cliquez ici](docs/index.md).
