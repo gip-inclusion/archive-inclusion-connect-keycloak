@@ -2,7 +2,7 @@
 
 ## Pour utiliser Inclusion Connect
 
-(à venir)
+- [Comment fonctionne Inclusion Connect](openid_connect.md)
 
 ## Pour développer
 
