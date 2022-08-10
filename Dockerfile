@@ -2,6 +2,7 @@
 # NB: This is the default location for the Dockerfile
 FROM quay.io/keycloak/keycloak:19.0
 COPY ./themes/inclusion-connect/ /opt/keycloak/themes/inclusion-connect/
+ENV KC_FEATURES_DISABLED=impersonation
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 # The spi-connections-jpa-default-migration-strategy option is here
 # to upgrade the database from v16.1.1
