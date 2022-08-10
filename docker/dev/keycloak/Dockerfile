@@ -1,0 +1,7 @@
+# Dockerfile for local environment
+FROM quay.io/keycloak/keycloak:latest
+# theme is mounted with docker file so that we don't have to create a new docker image
+# for every change in the theme.
+
+# Use start-dev command instead of start
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]

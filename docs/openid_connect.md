@@ -47,11 +47,10 @@ Le format des urls est le suivant :
 
 |               |                                                                              |
 |           --- | ---                                                                          |
-| Authorization | https://{hostname}/auth/realms/{realm-name}/protocol/openid-connect/auth     |
-| Token         | https://{hostname}/auth/realms/{realm-name}/protocol/openid-connect/token    |
-| UserInfo      | https://{hostname}/auth/realms/{realm-name}/protocol/openid-connect/userinfo |
-| Logout        | https://{hostname}/auth/realms/{realm-name}/protocol/openid-connect/logout   |
-
+| Authorization | https://{hostname}/realms/{realm-name}/protocol/openid-connect/auth     |
+| Token         | https://{hostname}/realms/{realm-name}/protocol/openid-connect/token    |
+| UserInfo      | https://{hostname}/realms/{realm-name}/protocol/openid-connect/userinfo |
+| Logout        | https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout   |
 
 Contactez l'équipe du projet pour obtenir les variables de production et de recette.
 
@@ -89,12 +88,6 @@ Cherchez `Détail des flux` sur
 [cette page](https://partenaires.franceconnect.gouv.fr/fcp/fournisseur-service).
 
 # Particularités d'Inclusion Connect
-
-## Mauvais paramètre de redirection lors de la déconnection
-
-Dans la version 16 de Keycloak (actuellement utilisée) le paramètre de redirection de l'endpoint
-logout ne s'appelle pas `post_logout_redirect_uri` mais `redirect_uri`.
-C'est un bug qui est corrigé dans les versions plus récentes.
 
 ## Personnalisation du fournisseur de service
 
