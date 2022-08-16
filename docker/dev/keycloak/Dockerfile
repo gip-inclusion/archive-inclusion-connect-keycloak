@@ -1,5 +1,5 @@
 # Dockerfile for local environment
-FROM quay.io/keycloak/keycloak:latest
+FROM quay.io/keycloak/keycloak:19.0
 # theme is mounted with docker file so that we don't have to create a new docker image
 # for every change in the theme.
 
