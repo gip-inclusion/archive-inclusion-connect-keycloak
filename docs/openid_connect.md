@@ -59,7 +59,7 @@ Contactez l'équipe du projet pour obtenir les variables de production et de rec
 ```mermaid
 sequenceDiagram
 Note right of Utilisateur: L'utilisateur clique sur le bouton "Inclusion Connect"
-Utilisateur ->> FS:
+Utilisateur ->> FS: ;
 FS -->> Utilisateur: Redirect 302 <IC_URL>/protocol/openid-connect/auth
 Utilisateur ->> Inclusion Connect: GET <IC_URL>/protocol/openid-connect/auth
 Inclusion Connect -->> Utilisateur: Redirect 302 <FS_URL>/<URL_CALLBACK>
@@ -70,7 +70,7 @@ FS ->> Inclusion Connect: POST <IC_URL>/protocol/openid-connect/userinfo
 Inclusion Connect -->> FS: HTTP Response 200
 FS -->> Utilisateur: Redirect 302 <FS_URL>/page_authentifée
 Note right of Utilisateur: Plus tard l'utilisateur se déconnecte du fournisseur de service
-Utilisateur ->> FS:
+Utilisateur ->> FS: ;
 FS -->> Utilisateur: Redirect 302 <IC_URL>/protocol/openid-connect/logout
 Utilisateur ->> Inclusion Connect: GET <IC_URL>/protocol/openid-connect/logout
 Inclusion Connect -->> Utilisateur: Redirect 302 <FS_URL>/<POST_LOGOUT_REDIRECT_URI>
