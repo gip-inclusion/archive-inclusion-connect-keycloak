@@ -7,6 +7,7 @@
 ## Liste des services utilisant Inclusion Connect
 
 - [Les emplois de l'Inclusion](https://emplois.inclusion.beta.gouv.fr)
+- [RDV Solidarités](https://www.rdv-solidarites.fr)
 
 ## Documentation
 
