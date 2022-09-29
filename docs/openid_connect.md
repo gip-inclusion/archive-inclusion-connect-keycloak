@@ -239,5 +239,13 @@ en réutilisant le **state** et le **id_token** (le paramètre **id_token_hint**
 
 #### Redirect
 
-Une redirection le l'utilisateur sur `https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout?state=<STATE>&id_token_hint=<ID_TOKEN>&post_logout_redirect_uri=<FS_URL>%2F<POST_LOGOUT_REDIRECT_URI>`
+##### Sans confirmation
+
+On redirige l'utilisateur sur `https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout?state=<STATE>&id_token_hint=<ID_TOKEN>&post_logout_redirect_uri=<FS_URL>%2F<POST_LOGOUT_REDIRECT_URI>`
 qui sera ensuite redirigé vers l'url passée avec le paramètre **post_logout_redirect_uri**.
+
+
+##### Avec confirmation
+
+Si le `STATE` et/ou l'`ID_TOKEN` ne sont pas disponibles, il est possible de déconnecter l'utilisateur avec une redirection  vers `https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout?client_id=<CLIENT_ID>&post_logout_redirect_uri=<FS_URL>%2F<POST_LOGOUT_REDIRECT_URI>`.
+Dans ce cas, l'utilisateur devra confirmer sa volonté de se deconnecter d'Inclusion Connect et sera ensuite redirigé vers l'url passée avec le paramètre **post_logout_redirect_uri**.
