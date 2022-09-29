@@ -74,22 +74,7 @@
 
 </@layout.registrationLayout>
 <script>
-    var params = []
-    window.location.search.substring(1).split("&").forEach(item => { params[item.split("=")[0]] = item.split("=")[1] })
-    if ("from" in params) {
-      localStorage.setItem("from", params["from"])
-    }
-    var img = document.getElementById("img-from")
-    var from = localStorage.getItem("from");
-    if (from == 'dora') {
-      img.src = "https://i.goopics.net/pnj9ji.png";
-    } else if (from == 'communaute') {
-      img.src = "https://i.goopics.net/5w86fe.png";
-    } else if (from == 'emplois') {
-      img.src = "https://i.goopics.net/fyzv6q.png";
-    } else {
-      img.src = "";
-    }
+    setLogo()
 </script>
 <style>
 #img-from {
