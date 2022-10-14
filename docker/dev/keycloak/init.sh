@@ -37,7 +37,8 @@ CLIENT_ID=$(/opt/keycloak/bin/kcadm.sh get clients -r local -q clientId=local_in
     -r local \
     -s enabled=true \
     -s clientAuthenticatorType=client-secret \
-    -s 'redirectUris=["*"]'
+    -s 'redirectUris=["*"]' \
+    -s 'attributes={"post.logout.redirect.uris": "+"}'
 
 # Affiche le client_id / client_secret pour utiliser le service
 CLIENT_SECRET=$(/opt/keycloak/bin/kcadm.sh get clients -r local -q clientId=local_inclusion_connect --fields=secret --format=csv | tr -d '"')
