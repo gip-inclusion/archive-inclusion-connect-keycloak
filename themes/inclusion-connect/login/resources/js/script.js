@@ -39,29 +39,14 @@ function passwordCheck(element) {
 }
 
 function showPassword(element) {
-  let src = document.getElementById("show-" + element).src;
-  src = src.split("/");
   if (document.getElementById(element).type == "password") {
     document.getElementById(element).type = "text";
-    document.getElementById("show-" + element).src =
-      "/auth/resources/" + src[5] + "/login/inclusion-connect/img/view.png"; // The src[5] part is used because this bit of the url is random
+    document.getElementById("show-" + element).className = "fr-link fr-text-underline fr-icon-eye-off-line fr-link--icon-left";
+    document.getElementById("show-" + element).innerHTML = "Masquer";
   } else {
     document.getElementById(element).type = "password";
-    document.getElementById("show-" + element).src =
-      "/auth/resources/" + src[5] + "/login/inclusion-connect/img/hide.png";
-  }
-}
-
-function goToRegisterPage() {
-  localStorage.setItem("pass", "true");
-  var elements = document.getElementsByClassName("pre-register");
-  for (var i = 0, len = elements.length; i < len; i++) {
-    elements[i].style.display = "none";
-  }
-
-  var elements = document.getElementsByClassName("register-form");
-  for (var i = 0, len = elements.length; i < len; i++) {
-    elements[i].style.display = "block";
+    document.getElementById("show-" + element).className = "fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left";
+    document.getElementById("show-" + element).innerHTML = "Afficher";
   }
 }
 

@@ -1,141 +1,79 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout; section >
-    <div class="pre-register">
-        <#if section = "header">
-            <div class="title pre-register"><span>La plateforme de l'inclusion met en place</span></div>
-        <#elseif section = "form">
-            <form id="kc-register-form" class="${properties.kcFormClass!} pre-register" action="javascript:goToRegisterPage()">
-                <div style="background-color:#FAFAFA;padding-top:30px;">
-                    <img src="${url.resourcesPath}/img/logo-inclusion.png">
-                    <div id="en-tete"><span>Utilisez le même identifiant et le même mot de passe sur plusieurs services.</span></div>
-                    <img id="logos" src="${url.resourcesPath}/img/logos.png">
-                    
-                </div>
-                <div class="${properties.kcFormGroupClass!}" >
-                    <div id="kc-form-options" class="${properties.kcFormOptionsClass!}" style="margin-bottom:30px;">
-                        <div class="${properties.kcFormOptionsWrapperClass!}">
-                            <span><a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
-                        </div>
-                            
-                    </div>
-                     <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="Créer un compte Inclusion Connect"/>
-                    </div>
-                </div>
-            </form>
-        </#if>
-    </div>
-    <div class="register-form">
-        <#if section = "header">
-            <img src="${url.resourcesPath}/img/register.png">
-            <img id="img-from" src="">
-            <div id="en-tete"><span>Créer un compte Inclusion Connect vous permettra d'utiliser le même identifiant et le même mot de passe pour plusieurs services</span></div>
-        <#elseif section = "form">
-            <form id="kc-register-form" class="${properties.kcFormClass!} register-form" action="${url.registrationAction}" method="post">
-
-                <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
-                    <div class="${properties.kcLabelWrapperClass!}">
-                        <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
-                    </div>
-                    <div class="${properties.kcInputWrapperClass!}">
-                        <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" />
-                    </div>
-                </div>
-
-                <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
-                    <div class="${properties.kcLabelWrapperClass!}">
-                        <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
-                    </div>
-                    <div class="${properties.kcInputWrapperClass!}">
-                        <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" />
-                    </div>
-                </div>
-
-                
-
-                <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
-                    <div class="${properties.kcLabelWrapperClass!}">
-                        <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
-                    </div>
-                    <div class="${properties.kcInputWrapperClass!}">
-                        <input type="text" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
-                    </div>
-                </div>
+<@layout.registrationLayout displayInfo=true; section>
+    <#if section = "header">
+        <p class="fr-h5 fr-mb-0 service-from"></p>
+        <h1 class="fr-h1">Créer un compte</h1>
+        <p class="fr-text--lg fr-mb-3w">Créer un compte Inclusion Connect vous permettra d'utiliser le même identifiant et le même mot de passe pour plusieurs services.</p>
+    <#elseif section = "form">
+        <form id="kc-register-form" action="${url.registrationAction}" method="post">
+            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
+                <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
+                <input type="text" id="lastName" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('lastName',properties.kcInputErrorClass!)}" name="lastName" value="${(register.formData.lastName!'')}" />
+            </div>
+            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
+                <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
+                <input type="text" id="firstName" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('firstName',properties.kcInputErrorClass!)}" name="firstName" value="${(register.formData.firstName!'')}" />
+            </div>
+            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
+                <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
+                <input type="text" id="email" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('email',properties.kcInputErrorClass!)}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
+            </div>
 
             <#if !realm.registrationEmailAsUsername>
                 <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
-                    <div class="${properties.kcLabelWrapperClass!}">
-                        <label for="username" class="${properties.kcLabelClass!}">${msg("username")}</label>
-                    </div>
-                    <div class="${properties.kcInputWrapperClass!}">
-                        <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" />
-                    </div>
+                    <label for="username" class="${properties.kcLabelClass!}">${msg("username")}</label>
+                    <input type="text" id="username" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}" name="username" value="${(register.formData.username!'')}" autocomplete="username" />
                 </div>
             </#if>
-                <div id="password-state">
-                    <span>Créer un mot de passe avec au moins:</span>
-                    <img id="length-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="length-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>8 caractères minimum</span>
-                    <img id="number-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="number-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>1 chiffre</span>
-                    <img id="capital-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="capital-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>1 majuscule</span>
-                    <img id="character-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="character-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>1 caractère spécial (ex: & é @ -)</span>
-                </div>
-
-                <#if passwordRequired??>
-                <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
-                    <div class="${properties.kcLabelWrapperClass!}">
-                        <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
-                    </div>
-                    <div class="${properties.kcInputWrapperClass!}">
-                        <input onKeyPress="passwordCheck('password')" onKeyUp="passwordCheck('password')" type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password"><img onclick="showPassword('password')" id="show-password" height="25" src="${url.resourcesPath}/img/hide.png">
-                    </div>
-                </div>
-
-                <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
-                    <div class="${properties.kcLabelWrapperClass!}">
-                        <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
-                    </div>
-                    <div class="${properties.kcInputWrapperClass!}">
-                        <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" /><img onclick="showPassword('password-confirm')" id="show-password-confirm" height="25" src="${url.resourcesPath}/img/hide.png">
-                    </div>
-                </div>
-                </#if>
-
-                <#if recaptchaRequired??>
-                <div class="form-group">
-                    <div class="${properties.kcInputWrapperClass!}">
-                        <div class="g-recaptcha" data-size="compact" data-sitekey="${recaptchaSiteKey}"></div>
-                    </div>
-                </div>
-                </#if>
-
+            <#if passwordRequired??>
                 <div class="${properties.kcFormGroupClass!}">
-                    <div id="kc-form-options" class="${properties.kcFormOptionsClass!}" style="margin-bottom:30px;">
-                        <div class="${properties.kcFormOptionsWrapperClass!}">
-                            <span><a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
+                    <div class="fr-grid-row">
+                        <div class="fr-col">
+                            <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                         </div>
-                            
+                        <div class="fr-col-auto">
+                            <span class="fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password')" id="show-password">Afficher</span>
+                        </div>
                     </div>
-
-                    <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
+                    <div class="fr-hint-text fr-mt-2v">
+                        <ul>
+                            <li><span class="fr-icon-error-line fr-icon--sm" aria-hidden="true" id="length-criteria-1"></span><span class="fr-text-default--success fr-icon-success-line fr-icon--sm" aria-hidden="true" id="length-criteria"></span> 8 caractères minimum</li>
+                            <li><span class="fr-icon-error-line fr-icon--sm" aria-hidden="true" id="number-criteria-1"></span><span class="fr-text-default--success fr-icon-success-line fr-icon--sm" aria-hidden="true" id="number-criteria"></span> 1 chiffre</li>
+                            <li><span class="fr-icon-error-line fr-icon--sm" aria-hidden="true" id="capital-criteria-1"></span><span class="fr-text-default--success fr-icon-success-line fr-icon--sm" aria-hidden="true" id="capital-criteria"></span> 1 majuscule</li>
+                            <li><span class="fr-icon-error-line fr-icon--sm" aria-hidden="true" id="character-criteria-1"></span><span class="fr-text-default--success fr-icon-success-line fr-icon--sm" aria-hidden="true" id="character-criteria"></span> 1 caractère spécial (ex: & é @ -)</li>
+                        </ul>
                     </div>
+                    <input onKeyPress="passwordCheck('password')" onKeyUp="passwordCheck('password')" type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password">
                 </div>
-            </form>
-        </#if>
-    </div>
-</@layout.registrationLayout>
-<script>
-    setLogo()
-    
-    if ("pass" in localStorage) {
-        var elements = document.getElementsByClassName("pre-register");
-        for (var i = 0, len = elements.length; i < len; i++) {
-            elements[i].style.display = "none";
-        }
+                <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
+                    <div class="fr-grid-row">
+                        <div class="fr-col">
+                            <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
+                        </div>
+                        <div class="fr-col-auto">
+                            <span class="fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password-confirm')" id="show-password-confirm">Afficher</span>
+                        </div>
+                    </div>
+                    <input type="password" id="password-confirm" class="${properties.kcInputClass!} fr-mt-2v" name="password-confirm" />
+                </div>
+            </#if>
 
-        var elements = document.getElementsByClassName("register-form");
-        for (var i = 0, len = elements.length; i < len; i++) {
-            elements[i].style.display = "block";
-        }
-    }
-</script>
+            <#if recaptchaRequired??>
+                <div class="${properties.kcFormGroupClass!}">
+                    <div class="g-recaptcha" data-size="compact" data-sitekey="${recaptchaSiteKey}"></div>
+                </div>
+            </#if>
+            <div id="kc-form-buttons">
+                <ul class="fr-btns-group">
+                    <li>
+                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!}" type="submit" value="${msg("doRegister")}"/>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    <#elseif section = "info" >
+        <p class="fr-mt-3w">
+            <a href="${url.loginUrl}" class="fr-link">${kcSanitize(msg("backToLogin"))?no_esc}</a>
+        </p>
+    </#if>
+</@layout.registrationLayout>

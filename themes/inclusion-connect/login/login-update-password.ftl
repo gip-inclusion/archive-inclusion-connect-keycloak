@@ -1,57 +1,74 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=true; section>
     <#if section = "header">
-        <img src="${url.resourcesPath}/img/logo-inclusion.png">
-        <img id="img-from" src="">
+        <p class="fr-h5 fr-mb-0 service-from"></p>
+        <h1 class="fr-h1">Mot de passe</h1>
+        <p class="fr-text--lg fr-mb-3w">Entrez votre nouveau mot de passe.</p>
     <#elseif section = "form">
-        <form id="kc-passwd-update-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
-            <input type="text" id="username" name="username" value="${username}" autocomplete="username" readonly="readonly" style="display:none;"/>
-            <input type="password" id="password" name="password" autocomplete="current-password" style="display:none;"/>
-            
-            <div id="password-state">
-                <span>Créer un mot de passe avec au moins:</span>
-                <img id="length-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="length-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>8 caractères minimum</span>
-                <img id="number-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="number-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>1 chiffre</span>
-                <img id="capital-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="capital-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>1 majuscule</span>
-                <img id="character-criteria-1" src="${url.resourcesPath}/img/feedback-error-sign.svg"><img id="character-criteria" src="${url.resourcesPath}/img/feedback-success-sign.svg"><span>1 caractère spécial (ex: & é @ -)</span>
-            </div>
+        <div id="kc-form">
+            <div id="kc-form-wrapper">
+                <form id="kc-passwd-update-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
+                    <input type="text" id="username" name="username" value="${username}" autocomplete="username" readonly="readonly" style="display:none;" />
 
-            <div class="${properties.kcFormGroupClass!}">
-                <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password-new" class="${properties.kcLabelClass!}">${msg("passwordNew")}</label>
-                </div>
-                <div class="${properties.kcInputWrapperClass!}">
-                    <input onKeyPress="passwordCheck('password-new')" onKeyUp="passwordCheck('password-new')" type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" autofocus autocomplete="new-password" /><img onclick="showPassword('password-new')" id="show-password-new" height="25" src="${url.resourcesPath}/img/hide.png">
-                </div>
-            </div>
-
-            <div class="${properties.kcFormGroupClass!}">
-                <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
-                </div>
-                <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password-confirm" name="password-confirm" class="${properties.kcInputClass!}" autocomplete="new-password" /><img onclick="showPassword('password-confirm')" id="show-password-confirm" height="25" src="${url.resourcesPath}/img/hide.png">
-                </div>
-            </div>
-
-            <div class="${properties.kcFormGroupClass!}">
-                <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
-                    <div class="${properties.kcFormOptionsWrapperClass!}">
+                    <div class="${properties.kcFormGroupClass!}">
+                        <div class="fr-grid-row">
+                            <div class="fr-col">
+                                <label for="password-new" class="${properties.kcLabelClass!}">${msg("passwordNew")}</label>
+                            </div>
+                            <div class="fr-col-auto">
+                                <span class="fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password-new')" id="show-password-new">Afficher</span>
+                            </div>
+                        </div>
+                        <div class="fr-hint-text fr-mt-2v">
+                            <ul>
+                                <li><span class="fr-icon-error-line fr-icon--sm" aria-hidden="true" id="length-criteria-1"></span><span class="fr-text-default--success fr-icon-success-line fr-icon--sm" aria-hidden="true" id="length-criteria"></span> 8 caractères minimum</li>
+                                <li><span class="fr-icon-error-line fr-icon--sm" aria-hidden="true" id="number-criteria-1"></span><span class="fr-text-default--success fr-icon-success-line fr-icon--sm" aria-hidden="true" id="number-criteria"></span> 1 chiffre</li>
+                                <li><span class="fr-icon-error-line fr-icon--sm" aria-hidden="true" id="capital-criteria-1"></span><span class="fr-text-default--success fr-icon-success-line fr-icon--sm" aria-hidden="true" id="capital-criteria"></span> 1 majuscule</li>
+                                <li><span class="fr-icon-error-line fr-icon--sm" aria-hidden="true" id="character-criteria-1"></span><span class="fr-text-default--success fr-icon-success-line fr-icon--sm" aria-hidden="true" id="character-criteria"></span> 1 caractère spécial (ex: & é @ -)</li>
+                            </ul>
+                        </div>
+                        <input type="password" id="password" name="password" autocomplete="current-password" style="display:none;" />
+                        <input onKeyPress="passwordCheck('password-new')" onKeyUp="passwordCheck('password-new')" type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" autofocus autocomplete="new-password" />
                     </div>
-                </div>
 
-                <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                    <#if isAppInitiatedAction??>
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}" />
-                    <button class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" type="submit" name="cancel-aia" value="true" />${msg("doCancel")}</button>
-                    <#else>
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}" />
-                    </#if>
-                </div>
+                    <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
+                        <div class="fr-grid-row">
+                            <div class="fr-col">
+                                <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
+                            </div>
+                            <div class="fr-col-auto">
+                                <span class="fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password-confirm')" id="show-password-confirm">Afficher</span>
+                            </div>
+                        </div>
+                        <input type="password" id="password-confirm" class="${properties.kcInputClass!} fr-mt-2v" name="password-confirm" />
+                    </div>
+
+                    <div class="${properties.kcFormGroupClass!}">
+                        <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
+                            <div class="${properties.kcFormOptionsWrapperClass!}"></div>
+                        </div>
+
+                        <div id="kc-form-buttons">
+                            <#if isAppInitiatedAction??>
+                                <ul class="fr-btns-group">
+                                    <li>
+                                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}" />
+                                    </li>
+                                    <li>
+                                        <button class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" type="submit" name="cancel-aia" value="true" />${msg("doCancel")}</button>
+                                    </li>
+                                </ul>
+                            <#else>
+                                <ul class="fr-btns-group">
+                                    <li>
+                                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}" />
+                                    </li>
+                                </ul>
+                            </#if>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </#if>
 </@layout.registrationLayout>
-<script>
-    setLogo()
-</script>
