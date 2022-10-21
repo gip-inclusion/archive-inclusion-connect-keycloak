@@ -1,1 +1,12 @@
+# Dev environment files
+env.local.sh
+.envrc
 dev.env
+.env
+
+# Debian
+.bash_history
+.python_history
+
+# Mac Os
+.DS_Store
