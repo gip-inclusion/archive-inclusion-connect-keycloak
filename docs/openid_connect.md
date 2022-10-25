@@ -47,12 +47,13 @@ Afin d'implémenter Inclusion Connect, il faut un compte pour votre fournisseur 
 
 Le format des urls est le suivant :
 
-|               |                                                                         |
-|           --- | ---                                                                     |
-| Authorization | https://{hostname}/realms/{realm-name}/protocol/openid-connect/auth     |
-| Token         | https://{hostname}/realms/{realm-name}/protocol/openid-connect/token    |
-| UserInfo      | https://{hostname}/realms/{realm-name}/protocol/openid-connect/userinfo |
-| Logout        | https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout   |
+|               |                                                                              |
+|           --- | ---                                                                          |
+| Authorization | https://{hostname}/realms/{realm-name}/protocol/openid-connect/auth          |
+| Registration  | https://{hostname}/realms/{realm-name}/protocol/openid-connect/registrations |
+| Token         | https://{hostname}/realms/{realm-name}/protocol/openid-connect/token         |
+| UserInfo      | https://{hostname}/realms/{realm-name}/protocol/openid-connect/userinfo      |
+| Logout        | https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout        |
 
 Contactez l'équipe du projet pour obtenir les variables de production et de recette.
 
@@ -84,7 +85,7 @@ Utilisateur ->> FS: GET <FS_URL>/<POST_LOGOUT_REDIRECT_URI>
 Le détail des flux peut être trouvé
 [en anglais sur cette page](https://openid.net/specs/openid-connect-core-1_0.html).
 
-### 1) Authentification
+### 1) Authentification / Création de compte
 
 #### Description
 
@@ -107,6 +108,10 @@ Les paramètres sont les suivants :
 - **nonce** : valeur générée aléatoirement par le FS qu'Inclusion Connect renvoie tel quel dans la réponse à l'appel à /token, pour être ensuite vérifié par le FS. Il est utilisé pour empêcher les attaques par rejeu.
 - **from** : paramètre supplémentaire utilisé par Inclusion Connect afin de personnaliser le template en ajoutant un logo. Les valeurs acceptées actuellement sont `emplois`, `dora` et `communaute`.
 - **login_hint**: paramètre supplémentaire utilisé par Inclusion Connect afin de préremplir une adresse e-mail dans le formulaire de création de compte sur Inclusion Connect. Attention : le formulaire ne bloque pas l'édition et il faudra donc vérifier que l'utilisateur a conservé cet email à l'aide de l'_access token_ plus tard.
+
+L'Utilisateur pourra se connecter s'il possède un compte, ou créer un compte en suivant le lien "Se créer un compte".
+
+Il est possible d'utiliser l'endpoint _Registration_ (avec les mêmes paramètres) pour que l'utilisateur arrive directement sur cette seconde page.
 
 Note : il est possible d'ajouter des paramètres supplémentaires via la redirect_uri, à passer après ? sous la forme clé=valeur. Ils seront renvoyés tels quels lors du retour vers le FS.
 
