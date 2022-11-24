@@ -6,8 +6,8 @@
         <p class="fr-text--lg">
             ${msg("emailVerifyInstruction1")}
         </p>
-        <p class="fr-text--lg fr-mb-3w">
-            ${msg("emailVerifyInstruction2")} <a href="${url.loginAction}" class="fr-link">${msg("doClickHere")}</a> ${msg("emailVerifyInstruction3")}
+        <p class="fr-text--sm fr-mb-3w">
+            ${msg("emailVerifyInstruction2")} <a href="${url.loginAction}" class="fr-link fr-text--sm">${msg("doClickHere")}</a> ${msg("emailVerifyInstruction3")}
         </p>
     </#if>
 </@layout.registrationLayout>
