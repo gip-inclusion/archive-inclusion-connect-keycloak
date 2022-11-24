@@ -1,34 +1,6 @@
 <#import "template.ftl" as layout>
 
 <@layout.registrationLayout displayInfo=social.displayInfo; section>
-    <div class="pre-register">
-        <#if section = "header">
-            <h1 class="fr-h1">Inclusion Connect</h1>
-            <p class="fr-text--lg fr-mb-3w">La plateforme de l'inclusion met en place un service d'authentification qui permet à un utilisateur d'utiliser les mêmes informations d'identification (email et mot de passe) pour accéder à plusieurs applications.</p>
-        <#elseif section = "form">
-            <div id="kc-form">
-                <div id="kc-form-wrapper">
-                    <h2 class="fr-h6">Utilisez le même identifiant et le même mot de passe sur plusieurs service</h2>
-                    <form id="kc-register-form" action="javascript:goToRegisterPage()">
-                        <div class="${properties.kcFormGroupClass!}">
-                             <img id="logos" class="fr-responsive-img" src="${url.resourcesPath}/img/logos.png" alt="" loading="lazy">
-                        </div>
-                        <div id="kc-form-buttons">
-                            <ul class="fr-btns-group">
-                                <li>
-                                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!}" type="submit" value="Créer un compte Inclusion Connect"/>
-                                </li>
-                            </ul>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        <#elseif section = "info" >
-            <p class="fr-mt-3w">
-                <a href="${url.loginUrl}" class="fr-link">${kcSanitize(msg("backToLogin"))?no_esc}</a>
-            </p>
-        </#if>
-    </div>
     <div class="register-form">
         <#if section = "header">
             <p class="fr-h5 fr-mb-0 service-from"></p>
@@ -109,15 +81,8 @@
     </div>
 </@layout.registrationLayout>
 <script>
-    if ("pass" in localStorage) {
-        var elements = document.getElementsByClassName("pre-register");
-        for (var i = 0, len = elements.length; i < len; i++) {
-            elements[i].style.display = "none";
-        }
-
-        var elements = document.getElementsByClassName("register-form");
-        for (var i = 0, len = elements.length; i < len; i++) {
-            elements[i].style.display = "block";
-        }
+    var elements = document.getElementsByClassName("register-form");
+    for (var i = 0, len = elements.length; i < len; i++) {
+        elements[i].style.display = "block";
     }
 </script>
