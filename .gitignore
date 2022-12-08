@@ -10,3 +10,6 @@ dev.env
 
 # Mac Os
 .DS_Store
+
+# python
+*pycache*
