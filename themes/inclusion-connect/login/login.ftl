@@ -3,12 +3,10 @@
 <@layout.registrationLayout displayInfo=social.displayInfo; section>
     <#if section = "header">
         <p class="fr-h5 fr-mb-0 service-from"></p>
-        <h1 class="fr-h1">Connexion</h1>
-        <p class="fr-text--lg fr-mb-3w">Entrez votre adresse e-mail et votre mot de passe.</p>
+        <h1 class="fr-h1 fr-mb-3w">Connexion</h1>
     <#elseif section = "form">
         <div id="kc-form">
             <div id="kc-form-wrapper">
-                <h2 class="fr-h5">Connexion</h2>
                 <#if realm.password>
                     <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                         <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
