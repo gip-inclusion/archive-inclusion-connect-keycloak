@@ -113,6 +113,10 @@ Les paramètres sont les suivants :
 L'Utilisateur pourra se connecter s'il possède un compte, ou créer un compte en suivant le lien "Se créer un compte".
 
 Il est possible d'utiliser l'endpoint _Registration_ (avec les mêmes paramètres) pour que l'utilisateur arrive directement sur cette seconde page.
+Cet endpoint possède deux paramètres de plus pour faciliter la migration de comptes :
+- **firstname**: permet de pré-remplir le prénom de l'utilisateur
+- **lastname**: permet de pré-remplir le nom de famille de l'utilisateur
+Sur cette page, les champs pré-remplis ne sont pas modifiables. Cela permet de s'assurer qu'un utilisateur existant d'une plateforme qui migre son compte à Incluion Connect ne change pas son email (ce qui empêcherait la plateforme de le reconnaitre).
 
 Note : il est possible d'ajouter des paramètres supplémentaires via la redirect_uri, à passer après ? sous la forme clé=valeur. Ils seront renvoyés tels quels lors du retour vers le FS.
 
