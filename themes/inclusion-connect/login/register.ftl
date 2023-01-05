@@ -2,10 +2,11 @@
 <@layout.registrationLayout displayInfo=true; section>
     <#if section = "header">
         <p class="fr-h5 fr-mb-0 service-from"></p>
-        <h1 class="fr-h1">Créer un compte</h1>
-        <p class="fr-text--lg fr-mb-3w">Créer un compte Inclusion Connect vous permettra d'utiliser le même identifiant et le même mot de passe pour plusieurs services.</p>
+        <h1 class="fr-h1 create">Créer un compte</h1>
+        <p class="fr-text--lg fr-mb-3w create">Créer un compte Inclusion Connect vous permettra d'utiliser le même identifiant et le même mot de passe pour plusieurs services.</p>
     <#elseif section = "form">
         <form id="kc-register-form" action="${url.registrationAction}" method="post">
+            <p class="fr-text--lg fr-mb-3w" id="activation-description" style="display:none;"></p>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
                 <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
                 <input type="text" id="lastName" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('lastName',properties.kcInputErrorClass!)}" name="lastName" value="${(register.formData.lastName!'')}" />
@@ -77,3 +78,37 @@
         </p>
     </#if>
 </@layout.registrationLayout>
+<script>
+    var sp = new URLSearchParams(window.location.search);
+    var firstName = sp.get('firstname');
+    var firstNameEl = document.getElementById("firstName")
+    if (firstName) {
+        firstNameEl.value = firstName;
+        firstNameEl.readOnly = true;
+    }
+
+    var lastName = sp.get('lastname');
+    var lastNameEl = document.getElementById("lastName")
+    if (lastName) {
+        lastNameEl.value = lastName;
+        lastNameEl.readOnly = true;
+    }
+
+    var emailEl = document.getElementById("email")
+    if (emailEl.value) {
+        emailEl.readOnly = true;
+    }
+
+    if (firstName && lastName && emailEl.value) {
+        var createToReplace = document.getElementsByClassName("create");
+        Array.prototype.forEach.call(createToReplace, function(el) {
+            el.innerHTML = el.innerHTML.replace("Créer un", "Activer votre");
+        })
+        var accountDescriptionEl = document.getElementById("activation-description");
+        firstNameEl.parentNode.style.display = 'none';
+        lastNameEl.parentNode.style.display = 'none';
+        emailEl.parentNode.style.display = 'none';
+        accountDescriptionEl.style.display = 'block';
+        accountDescriptionEl.innerHTML = lastName + " " + firstName + " (" + emailEl.value + ")"
+    }
+</script>
