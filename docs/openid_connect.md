@@ -54,6 +54,7 @@ Le format des urls est le suivant :
 | Token         | https://{hostname}/realms/{realm-name}/protocol/openid-connect/token         |
 | UserInfo      | https://{hostname}/realms/{realm-name}/protocol/openid-connect/userinfo      |
 | Logout        | https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout        |
+| Login-Reset   | https://{hostname}/realms/{realm-name}/login-actions/reset-credentials       |
 
 Contactez l'équipe du projet pour obtenir les variables de production et de recette.
 
@@ -257,3 +258,29 @@ qui sera ensuite redirigé vers l'url passée avec le paramètre **post_logout_r
 
 Si le `STATE` et/ou l'`ID_TOKEN` ne sont pas disponibles, il est possible de déconnecter l'utilisateur avec une redirection  vers `https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout?client_id=<CLIENT_ID>&post_logout_redirect_uri=<FS_URL>%2F<POST_LOGOUT_REDIRECT_URI>`.
 Dans ce cas, l'utilisateur devra confirmer sa volonté de se deconnecter d'Inclusion Connect et sera ensuite redirigé vers l'url passée avec le paramètre **post_logout_redirect_uri**.
+
+### 6) Ré-initialisation de mots de passe
+
+On accède généralement à cette page en cliquant sur "Mot de passe oublié" depuis la page de connexion.
+
+Cependant il est possible d'envoyer directement un utilisateur sur cette page, ce qui est utile notamment dans
+le cas où l'on a importé des utilisateurs d'une plateforme dans Inclusion Connect et où ils ne leur reste qu'à
+changer de mot de passe pour activer leur compte.
+
+Voici le fonctionnement dans ce cas.
+
+#### Description
+
+- Contexte : Le FS redirige l'utilisateur vers l'endpoint _Login-Reset_
+- Origine : FS (par exemple lien dans un email)
+- Cible : Inclusion Connect
+- Type d'appel : redirection navigateur
+
+#### Requête
+
+- URL : `https://{hostname}/realms/{realm-name}/login-actions/reset-credentials`
+- Méthode : POST
+
+Voici les arguments que l'on peut ajouter à l'url :
+- **email** : l'adresse email de l'utilisateur. Cela lui permet de ne pas re-saissir son email sur cette page
+et facilite donc l'activation de son compte.

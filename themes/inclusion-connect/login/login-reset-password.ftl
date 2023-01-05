@@ -28,3 +28,10 @@
         </p>
     </#if>
 </@layout.registrationLayout>
+<script>
+    var sp = new URLSearchParams(window.location.search);
+    var email = sp.get('email');
+    if (email) {
+        document.getElementById("username").value = email;
+    }
+</script>
