@@ -155,6 +155,8 @@ Les paramètres sont les suivants :
 
 - URL : `https://{hostname}/realms/{realm-name}/protocol/openid-connect/token`
 - Méthode : POST
+- Header attendu: `Content-Type: application/x-www-form-urlencoded`
+- Body: au format "key1=value1&key2=value2" (adapté au content-type `application/x-www-form-urlencoded` )
 
 Voici le payload à envoyer :
 - **grant_type**' : `authorization_code` (valeur imposée par le protocol).
