@@ -10,7 +10,7 @@
 - [RDV Solidarités](https://www.rdv-solidarites.fr)
 - [DORA](https://dora.fabrique.social.gouv.fr)
 - [Mon Suivi Social](https://monsuivisocial.incubateur.anct.gouv.fr/)
-- [Les emplois de l'inclusion]
+- [La communauté de l'inclusion]
 - [Conseillers Numériques France Service](https://www.conseiller-numerique.gouv.fr/)
 
 ## Documentation
