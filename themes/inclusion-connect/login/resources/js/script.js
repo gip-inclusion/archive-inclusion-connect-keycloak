@@ -41,11 +41,11 @@ function passwordCheck(element) {
 function showPassword(element) {
   if (document.getElementById(element).type == "password") {
     document.getElementById(element).type = "text";
-    document.getElementById("show-" + element).className = "fr-link fr-text-underline fr-icon-eye-off-line fr-link--icon-left";
+    document.getElementById("show-" + element).className = "fr-link ic-text-underline fr-icon-eye-off-line fr-link--icon-left";
     document.getElementById("show-" + element).innerHTML = "Masquer";
   } else {
     document.getElementById(element).type = "password";
-    document.getElementById("show-" + element).className = "fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left";
+    document.getElementById("show-" + element).className = "fr-link ic-text-underline fr-icon-eye-line fr-link--icon-left";
     document.getElementById("show-" + element).innerHTML = "Afficher";
   }
 }
