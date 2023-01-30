@@ -1,9 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=true; section>
     <#if section = "header">
-        <p class="fr-h5 fr-mb-0 service-from"></p>
-        <h1 class="fr-h1">Mot de passe</h1>
-        <p class="fr-text--lg fr-mb-3w">Entrez votre nouveau mot de passe.</p>
+        <h1 class="fr-h4">Mot de passe</h1>
+        <p class="fr-text--md fr-mb-3w">Entrez votre nouveau mot de passe.</p>
     <#elseif section = "form">
         <div id="kc-form">
             <div id="kc-form-wrapper">
@@ -16,7 +15,7 @@
                                 <label for="password-new" class="${properties.kcLabelClass!}">${msg("passwordNew")}</label>
                             </div>
                             <div class="fr-col-auto">
-                                <span class="fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password-new')" id="show-password-new">Afficher</span>
+                                <span class="fr-link ic-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password-new')" id="show-password-new">Afficher</span>
                             </div>
                         </div>
                         <div class="fr-hint-text fr-mt-2v">
@@ -37,7 +36,7 @@
                                 <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
                             </div>
                             <div class="fr-col-auto">
-                                <span class="fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password-confirm')" id="show-password-confirm">Afficher</span>
+                                <span class="fr-link ic-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password-confirm')" id="show-password-confirm">Afficher</span>
                             </div>
                         </div>
                         <input type="password" id="password-confirm" class="${properties.kcInputClass!} fr-mt-2v" name="password-confirm" />
