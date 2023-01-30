@@ -74,11 +74,11 @@
             </div>
         </header>
 
-        <main role="main" id="contentu">
+        <main role="main" id="contenu">
 
             <div class="fr-container">
-                <div class="fr-my-6w fr-mb-md-12w fr-grid-row fr-grid-row--middle">
-                    <div class="fr-col-12 fr-col-lg-6 fr-col-offset-lg-3">
+                <div class="fr-my-6w fr-my-md-10w fr-grid-row fr-background-alt--grey">
+                    <div class="fr-col-12 fr-col-lg-6 fr-p-4w fr-px-md-12w fr-py-md-7w fr-background-default--grey">
                         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
                             <#if displayRequiredFields>
                                 <#nested "header">
@@ -124,9 +124,7 @@
                                 <p>${kcSanitize(message.summary)?no_esc}</p>
                             </div>
                         </#if>
-                    </div>
-                    <#if displayForm>
-                        <div class="fr-col-12 fr-col-lg-6 fr-col-offset-lg-3 fr-p-2w fr-px-md-12w fr-py-md-7w" style="background-color:var(--background-alt-grey)">
+                        <#if displayForm>
                             <#nested "form">
 
                             <#if auth?has_content && auth.showTryAnotherWayLink() && showAnotherWayIfPresent>
@@ -138,15 +136,16 @@
                                     </div>
                                 </form>
                             </#if>
-                        </div>
-                    </#if>
-                    <#if displayInfo>
-                        <div class="fr-col-12 fr-col-lg-6 fr-col-offset-lg-3">
+                        </#if>
+                        <#if displayInfo>
                             <div class="fr-mb-3w">
                                 <#nested "info">
                             </div>
-                        </div>
-                    </#if>
+                        </#if>
+                    </div>
+                    <div class="fr-hidden ic-block-img-lg fr-col-lg-6 fr-p-4w fr-py-md-7w">
+                        <img src="${url.resourcesPath}/img/illustration-ic.svg" class="fr-fluid-img" alt="">
+                    </div>
                 </div>
             </div>
         </main>
@@ -182,9 +181,6 @@
                 </div>
             </div>
         </footer>
-        <script>
-            setService();
-        </script>
     </body>
 </html>
 </#macro>

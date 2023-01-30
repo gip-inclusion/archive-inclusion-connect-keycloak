@@ -2,15 +2,17 @@
 
 <@layout.registrationLayout displayInfo=social.displayInfo; section>
     <#if section = "header">
-        <p class="fr-h5 fr-mb-0 service-from"></p>
-        <h1 class="fr-h1 fr-mb-3w">Connexion</h1>
+        <h1 class="fr-h4">${msg("doLogIn")}</h1>
     <#elseif section = "form">
         <div id="kc-form">
             <div id="kc-form-wrapper">
                 <#if realm.password>
                     <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                         <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
-                            <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if><span class="fr-hint-text">Format attendu : nom@domaine.fr</span></label>
+                            <label for="username" class="${properties.kcLabelClass!}">
+                                <#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>
+                                <span class="fr-hint-text">Format attendu : nom@domaine.fr</span>
+                            </label>
                             <#if usernameEditDisabled??>
                                 <input tabindex="1" id="username" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('username',properties.kcInputErrorClass!)}" name="username" value="${(login.username!'')}" type="text" disabled />
                             <#else>
@@ -51,16 +53,6 @@
                 </#if>
             </div>
 
-            <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
-                <hr class="fr-mt-3w">
-                <h2 class="fr-h5">${msg("noAccount")} </h2>
-                <ul class="fr-btns-group">
-                    <li>
-                        <a class="fr-btn fr-btn--secondary" tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a>
-                    </li>
-                </ul>
-            </#if>
-
             <#if realm.password && social.providers??>
                 <hr class="fr-mt-3w">
                 <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
@@ -73,6 +65,14 @@
             </#if>
         </div>
     <#elseif section = "info">
-        <#--Infos -->
+        <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
+            <hr class="fr-mt-2w">
+            <p class="fr-text fr-mb-1w ic-text-center"><strong>Vous n’avez pas de compte Inclusion Connect ?</strong></p>
+            <ul class="fr-btns-group ic-text-center">
+                <li>
+                    <a class="fr-link" href="${url.registrationUrl}"><strong>${msg("doRegister")}</strong></a>
+                </li>
+            </ul>
+        </#if>
     </#if>
 </@layout.registrationLayout>

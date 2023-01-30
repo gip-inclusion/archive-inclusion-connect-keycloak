@@ -1,13 +1,15 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=true; section>
     <#if section = "header">
-        <p class="fr-h5 fr-mb-0 service-from"></p>
-        <h1 class="fr-h1">${msg("doForgotPassword")}</h1>
-        <p class="fr-text--lg fr-mb-3w">${msg("emailInstruction")}</p>
+        <h1 class="fr-h4">${msg("doForgotPassword")}</h1>
+        <p class="fr-text--md fr-mb-3w">${msg("emailInstruction")}</p>
     <#elseif section = "form">
         <form id="kc-reset-password-form" action="${url.loginAction}" method="post">
             <div class="${properties.kcFormGroupClass!}">
-                <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
+                <label for="username" class="${properties.kcLabelClass!}">
+                    <#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>
+                    <span class="fr-hint-text">Format attendu : nom@domaine.fr</span>
+                </label>
                 <#if auth?has_content && auth.showUsername()>
                     <input type="text" id="username" name="username" class="${properties.kcInputClass!}" autofocus value="${auth.attemptedUsername}"/>
                 <#else>
@@ -23,9 +25,12 @@
             </div>
         </form>
     <#elseif section = "info" >
-        <p class="fr-mt-3w">
-            <a href="${url.loginUrl}" class="fr-link">${kcSanitize(msg("backToLogin"))?no_esc}</a>
-        </p>
+        <hr class="fr-mt-2w">
+        <ul class="fr-btns-group ic-text-center">
+            <li>
+                <a href="${url.loginUrl}" class="fr-link"><strong>${kcSanitize(msg("backToLogin"))?no_esc}</strong></a>
+            </li>
+        </ul>
     </#if>
 </@layout.registrationLayout>
 <script>

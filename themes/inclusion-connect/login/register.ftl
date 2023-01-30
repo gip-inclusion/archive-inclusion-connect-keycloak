@@ -1,9 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=true; section>
     <#if section = "header">
-        <p class="fr-h5 fr-mb-0 service-from"></p>
-        <h1 class="fr-h1 create">Créer un compte</h1>
-        <p class="fr-text--lg fr-mb-3w create">Créer un compte Inclusion Connect vous permettra d'utiliser le même identifiant et le même mot de passe pour plusieurs services.</p>
+        <h1 class="fr-h4 create">Créer un compte</h1>
+        <p class="fr-text--md fr-mb-3w create">Créer un compte Inclusion Connect vous permettra d'utiliser le même identifiant et le même mot de passe pour plusieurs services.</p>
     <#elseif section = "form">
         <form id="kc-register-form" action="${url.registrationAction}" method="post">
             <p class="fr-text--lg fr-mb-3w" id="activation-description" style="display:none;"></p>
@@ -16,7 +15,10 @@
                 <input type="text" id="firstName" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('firstName',properties.kcInputErrorClass!)}" name="firstName" value="${(register.formData.firstName!'')}" />
             </div>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
-                <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
+                <label for="email" class="${properties.kcLabelClass!}">
+                    ${msg("email")}
+                    <span class="fr-hint-text">Format attendu : nom@domaine.fr</span>
+                </label>
                 <input type="text" id="email" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('email',properties.kcInputErrorClass!)}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
             </div>
 
@@ -33,7 +35,7 @@
                             <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                         </div>
                         <div class="fr-col-auto">
-                            <span class="fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password')" id="show-password">Afficher</span>
+                            <span class="fr-link ic-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password')" id="show-password">Afficher</span>
                         </div>
                     </div>
                     <div class="fr-hint-text fr-mt-2v">
@@ -52,7 +54,7 @@
                             <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
                         </div>
                         <div class="fr-col-auto">
-                            <span class="fr-link fr-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password-confirm')" id="show-password-confirm">Afficher</span>
+                            <span class="fr-link ic-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password-confirm')" id="show-password-confirm">Afficher</span>
                         </div>
                     </div>
                     <input type="password" id="password-confirm" class="${properties.kcInputClass!} fr-mt-2v" name="password-confirm" />
@@ -67,14 +69,16 @@
             <div id="kc-form-buttons">
                 <ul class="fr-btns-group">
                     <li>
-                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!}" type="submit" value="${msg("doRegister")}"/>
+                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!}" type="submit" value="S’inscrire" />
                     </li>
                 </ul>
             </div>
         </form>
     <#elseif section = "info" >
-        <p class="fr-mt-3w">
-            <a href="${url.loginUrl}" class="fr-link">${kcSanitize(msg("backToLogin"))?no_esc}</a>
+        <hr class="fr-mt-2w">
+        <p class="fr-text fr-mb-1w ic-text-center">
+            <span>Vous avez déjà un compte ?</span>
+            <a href="${url.loginUrl}" class="fr-link"><strong>Connectez-vous</strong></a>
         </p>
     </#if>
 </@layout.registrationLayout>

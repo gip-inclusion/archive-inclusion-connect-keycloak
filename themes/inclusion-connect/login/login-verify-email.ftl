@@ -1,13 +1,12 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayForm=false; section>
     <#if section = "header">
-        <p class="fr-h5 fr-mb-0 service-from"></p>
-        <h1 class="fr-h1">Vérification de votre adresse e-mail</h1>
-        <p class="fr-text--lg">
+        <h1 class="fr-h4">Regardez votre boite mail !</h1>
+        <p class="fr-text--md fr-mb-3w">
             ${msg("emailVerifyInstruction1")}
         </p>
-        <p class="fr-text--sm fr-mb-3w">
-            ${msg("emailVerifyInstruction2")} <a href="${url.loginAction}" class="fr-link fr-text--sm">${msg("doClickHere")}</a> ${msg("emailVerifyInstruction3")}
+        <p class="fr-text fr-mb-3w">
+            ${msg("emailVerifyInstruction2")} <a href="${url.loginAction}" class="fr-link"><strong>${msg("doClickHere")}</strong></a> ${msg("emailVerifyInstruction3")}
         </p>
     </#if>
 </@layout.registrationLayout>
