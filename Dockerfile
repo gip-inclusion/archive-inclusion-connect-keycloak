@@ -1,6 +1,6 @@
 # Dockerfile used **in a production environment** as this is the default location of a Dockerfile.
 # NB: This is the default location for the Dockerfile
-FROM quay.io/keycloak/keycloak:19.0.2
+FROM quay.io/keycloak/keycloak:20.0.3
 COPY ./themes/inclusion-connect/ /opt/keycloak/themes/inclusion-connect/
 
 # Disable Impersonation

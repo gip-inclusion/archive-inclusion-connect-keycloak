@@ -2,7 +2,7 @@
 <html>
 <body>
 ${msg("greetingHtml")?no_esc}
-${msg("identityProviderLinkBodyHtml", identityProviderAlias, realmName, identityProviderContext.username, link, linkExpiration, linkExpirationFormatter(linkExpiration))?no_esc}
+${msg("identityProviderLinkBodyHtml", identityProviderDisplayName, realmName, identityProviderContext.username, link, linkExpiration, linkExpirationFormatter(linkExpiration))?no_esc}
 ${msg("closingHtml")?no_esc}
 </body>
 </html>
