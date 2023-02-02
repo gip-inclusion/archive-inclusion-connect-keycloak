@@ -107,7 +107,6 @@ Les paramètres sont les suivants :
 - **scope** : les ressources auxquelles on souhaite avoir accès. Il faut utiliser `openid profile email`.
 - **state** : valeur générée aléatoirement par le FS qu'Inclusion Connect renvoie tel quel dans la réponse à cet appel pour être ensuite vérifié par le FS. Il est utilisé afin d’empêcher l’exploitation de failles CSRF.
 - **nonce** : valeur générée aléatoirement par le FS qu'Inclusion Connect renvoie tel quel dans la réponse à l'appel à /token, pour être ensuite vérifié par le FS. Il est utilisé pour empêcher les attaques par rejeu.
-- **from** : paramètre supplémentaire utilisé par Inclusion Connect afin de personnaliser le template en ajoutant un logo. Les valeurs acceptées actuellement sont `emplois`, `dora` et `communaute`.
 - **login_hint**: paramètre supplémentaire utilisé par Inclusion Connect afin de préremplir une adresse e-mail dans le formulaire de création de compte sur Inclusion Connect. Attention : le formulaire ne bloque pas l'édition et il faudra donc vérifier que l'utilisateur a conservé cet email à l'aide de l'_access token_ plus tard.
 
 L'Utilisateur pourra se connecter s'il possède un compte, ou créer un compte en suivant le lien "Se créer un compte".
