@@ -9,6 +9,7 @@
     -s editUsernameAllowed=true \
     -s verifyEmail=true \
     -s resetPasswordAllowed=true \
+    -s accountTheme=inclusion-connect \
     -s loginTheme=inclusion-connect \
     -s emailTheme=inclusion-connect \
     -s smtpServer.host=smtp \

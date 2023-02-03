@@ -35,7 +35,7 @@
             <#if !realm.registrationEmailAsUsername>
                 <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
                     <label for="username" class="${properties.kcLabelClass!}">${msg("username")}</label>
-                    <input type="text" id="username" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}" name="username" value="${(register.formData.username!'')}" autocomplete="username" />
+                    <input type="text" id="username" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('username',properties.kcInputErrorClass!)}" name="username" value="${(register.formData.username!'')}" autocomplete="username" />
                 </div>
             </#if>
             <#if passwordRequired??>
