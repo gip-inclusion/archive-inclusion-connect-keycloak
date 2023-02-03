@@ -51,7 +51,9 @@ La première fois que vous lancez le service, il faudra configurer Keycloak en l
 docker exec -i inclusion_connect_keycloak bash < docker/dev/keycloak/init.sh
 ```
 
-NB : ce script affiche à la fin le couple `client_id`/`client_secret` pour utiliser le service.
+Pour utiliser le service il faut les identifiantes suivants :
+- le `client_id` est `local_inclusion_connect`
+- le `client_secret` est `password`
 
 ### Testez l'envoi d'email
 
@@ -68,7 +70,7 @@ vous devriez voir un email de test dans l'interface de MailHog (http://0.0.0.0:8
 Si tout va bien (croisons les doigts) vous aurez accès à `http://0.0.0.0:8080/realms/local/protocol/openid-connect/auth`
 et aux autres urls.
 
-Il faudra utiliser le couple `client_id`/`client_secret` affiché en sortie du script `docker/dev/keycloak/init.sh` utilisé précédemment.
+Il faudra utiliser le couple `local_inclusion_connect`/`password` comme indiqué précédement.
 
 ## En cas de soucis
 

@@ -6,6 +6,7 @@
     -s enabled=true \
     -s registrationAllowed=true \
     -s registrationEmailAsUsername=true \
+    -s editUsernameAllowed=true \
     -s verifyEmail=true \
     -s resetPasswordAllowed=true \
     -s loginTheme=inclusion-connect \
@@ -16,16 +17,21 @@
     -s smtpServer.from=inclusion@connect.fr \
     -s internationalizationEnabled=true \
     -s 'supportedLocales=["fr"]' \
-    -s defaultLocale=fr
+    -s defaultLocale=fr \
+    -s passwordPolicy="length(8) and digits(1) and upperCase(1) and specialChars(1)" \
+    -s actionTokenGeneratedByUserLifespan=86400
 # realm=local                       # Nom du royaume
 # enabled=true                      # Active le royaume
 # registrationAllowed=true          # Permet là des utilisateurs de créer des comptes
 # registrationEmailAsUsername=true  # email == username
+# editUsernameAllowed=true          # Permet de mettre à jour son email
 # verifyEmail=true                  # Force la vérification de l'email
 # resetPasswordAllowed=true         # Permet de redemander un mot de passe
 # loginTheme=inclusion-connect      # Utilise notre theme pour la mire de connexion
 # emailTheme=inclusion-connect      # Utilise notre theme pour les emails
+# accountTheme=inclusion-connect    # Utilise notre theme pour l'espace personnel
 # smtpServer.host=smtp              # Docker compose utilise le nom du dervice comme hostname
+# actionTokenGeneratedByUserLifespan -> 24 heures
 
 # Crée le client pour utiliser le SSO
 /opt/keycloak/bin/kcadm.sh create clients \
@@ -36,13 +42,12 @@ CLIENT_ID=$(/opt/keycloak/bin/kcadm.sh get clients -r local -q clientId=local_in
 /opt/keycloak/bin/kcadm.sh update clients/$CLIENT_ID \
     -r local \
     -s enabled=true \
+    -s secret="password" \
     -s clientAuthenticatorType=client-secret \
     -s 'redirectUris=["*"]' \
     -s 'attributes={"post.logout.redirect.uris": "+"}'
 
-# Affiche le client_id / client_secret pour utiliser le service
-CLIENT_SECRET=$(/opt/keycloak/bin/kcadm.sh get clients -r local -q clientId=local_inclusion_connect --fields=secret --format=csv | tr -d '"')
 echo "================================================"
 echo "client_id     = local_inclusion_connect"
-echo "client_secret = $CLIENT_SECRET"
+echo "client_secret = password"
 echo "================================================"
