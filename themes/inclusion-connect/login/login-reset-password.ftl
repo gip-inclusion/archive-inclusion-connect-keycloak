@@ -6,7 +6,10 @@
     <#elseif section = "form">
         <form id="kc-reset-password-form" action="${url.loginAction}" method="post">
             <div class="${properties.kcFormGroupClass!}">
-                <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
+                <label for="username" class="${properties.kcLabelClass!}">
+                    <#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>
+                    <span class="fr-hint-text">Format attendu : nom@domaine.fr</span>
+                </label>
                 <#if auth?has_content && auth.showUsername()>
                     <input type="text" id="username" name="username" class="${properties.kcInputClass!}" autofocus value="${auth.attemptedUsername}"/>
                 <#else>

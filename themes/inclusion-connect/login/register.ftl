@@ -15,7 +15,10 @@
                 <input type="text" id="firstName" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('firstName',properties.kcInputErrorClass!)}" name="firstName" value="${(register.formData.firstName!'')}" />
             </div>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
-                <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
+                <label for="email" class="${properties.kcLabelClass!}">
+                    ${msg("email")}
+                    <span class="fr-hint-text">Format attendu : nom@domaine.fr</span>
+                </label>
                 <input type="text" id="email" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('email',properties.kcInputErrorClass!)}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
             </div>
 
