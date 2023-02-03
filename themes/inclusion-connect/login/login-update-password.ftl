@@ -1,8 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=true; section>
     <#if section = "header">
-        <h1 class="fr-h4">Mot de passe</h1>
-        <p class="fr-text--md fr-mb-3w">Entrez votre nouveau mot de passe.</p>
+        <h1 class="fr-h4">Réinitialisation du mot de passe</h1>
+        <p class="fr-text--md fr-mb-3w">Veuillez choisir un nouveau mot de passe</p>
     <#elseif section = "form">
         <div id="kc-form">
             <div id="kc-form-wrapper">
