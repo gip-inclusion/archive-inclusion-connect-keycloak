@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayForm=false; section>
     <#if section = "header">
-        <h1 class="fr-h4">Regardez votre boite mail !</h1>
+        <h1 class="fr-h4">Regardez votre boîte mail !</h1>
         <p class="fr-text--md fr-mb-3w">
             ${msg("emailVerifyInstruction1")}
         </p>

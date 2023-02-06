@@ -1,11 +1,21 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=true; section>
     <#if section = "header">
-        <h1 class="fr-h4 create">Créer un compte</h1>
-        <p class="fr-text--md fr-mb-3w create">Créer un compte Inclusion Connect vous permettra d'utiliser le même identifiant et le même mot de passe pour plusieurs services.</p>
+        <div id="create-header">
+            <h1 class="fr-h4">Créer un compte</h1>
+            <p class="fr-text--md fr-mb-3w">Inclusion Connect vous permettra d’utiliser le même identifiant et mot de passe pour plusieurs services, en toute sécurité.</p>
+        </div>
+        <div id="activate-header" style="display: none">
+            <div class="fr-col-lg-7 fr-mb-4w">
+                <img src="${url.resourcesPath}/img/logo-inclusion-connect.svg" class="fr-responsive-img" alt="">
+            </div>
+            <h1 class="fr-h4">Renseignez votre mot de passe</h1>
+            <p class="fr-text--md fr-mb-3w">Vous pouvez réutiliser celui de votre compte les emplois de l’inclusion si vous le souhaitez</p>
+            <hr class=fr-mt-2w>
+        </div>
     <#elseif section = "form">
         <form id="kc-register-form" action="${url.registrationAction}" method="post">
-            <p class="fr-text--lg fr-mb-3w" id="activation-description" style="display:none;"></p>
+            <div class="fr-text--lg fr-mb-3w" id="activation-description" style="display:none;"></div>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
                 <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
                 <input type="text" id="lastName" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('lastName',properties.kcInputErrorClass!)}" name="lastName" value="${(register.formData.lastName!'')}" />
@@ -69,7 +79,7 @@
             <div id="kc-form-buttons">
                 <ul class="fr-btns-group">
                     <li>
-                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!}" type="submit" value="S’inscrire" />
+                        <input id="subscribe-btn" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!}" type="submit" value="S’inscrire" />
                     </li>
                 </ul>
             </div>
@@ -104,10 +114,15 @@
     }
 
     if (firstName && lastName && emailEl.value) {
-        var createToReplace = document.getElementsByClassName("create");
-        Array.prototype.forEach.call(createToReplace, function(el) {
-            el.innerHTML = el.innerHTML.replace("Créer un", "Activer votre");
-        })
+        var createHeader = document.getElementById("create-header");
+        createHeader.style.display = 'none'
+
+        var activateHeader = document.getElementById("activate-header");
+        activateHeader.style.display = 'block'
+
+        var subscribe = document.getElementById("subscribe-btn");
+        subscribe.value = "Activer Inclusion Connect"
+
         var accountDescriptionEl = document.getElementById("activation-description");
         firstNameEl.parentNode.style.display = 'none';
         lastNameEl.parentNode.style.display = 'none';
