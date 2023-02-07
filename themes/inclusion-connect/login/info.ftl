@@ -1,11 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayMessage=false; section>
     <#if section = "header">
-        <h1 class="fr-h4">Erreur</h1>
         <#if messageHeader??>
             <p class="fr-text--md fr-mb-3w">${messageHeader}</p>
-        <#else>
-            <p class="fr-text--md fr-mb-3w">${message.summary}</p>
         </#if>
     <#elseif section = "form">
     <div id="kc-info-message">
