@@ -2,7 +2,8 @@
 
 ## Pour utiliser Inclusion Connect
 
-- [Comment fonctionne Inclusion Connect](openid_connect.md)
+- [Le protocole OpenID Connect](openid_connect.md)
+- [Comment utiliser Inclusion Connect](inclusion_connect.md)
 
 ## Pour développer
 
