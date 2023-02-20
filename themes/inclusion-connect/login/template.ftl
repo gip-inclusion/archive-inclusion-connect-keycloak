@@ -13,10 +13,15 @@
         </#if>
         <title>${msg("loginTitle",(realm.displayName!''))}</title>
         <meta name="theme-color" content="#000091"><!-- Défini la couleur de thème du navigateur (Safari/Android) -->
-        <link rel="apple-touch-icon" href="${url.resourcesPath}/favicon/apple-touch-icon.png"><!-- 180×180 -->
-        <link rel="icon" href="${url.resourcesPath}/img/illustration-bg-ic.svg" type="image/svg+xml">
-        <link rel="shortcut icon" href="${url.resourcesPath}/img/favicon.ico" type="image/x-icon"><!-- 32×32 -->
+        <link rel="apple-touch-icon" href="${url.resourcesPath}/../../common/inclusion-connect/apple-touch-icon.png"><!-- 180×180 -->
+        <link rel="icon" href="${url.resourcesPath}/../../common/inclusion-connect/img/illustration-bg-ic.svg" type="image/svg+xml">
+        <link rel="icon" href="${url.resourcesPath}/../../common/inclusion-connect/img/favicon.ico">
         <link rel="manifest" href="${url.resourcesPath}/favicon/manifest.webmanifest" crossorigin="use-credentials">
+        <#if properties.stylesCommon?has_content>
+            <#list properties.stylesCommon?split(' ') as style>
+                <link href="${url.resourcesCommonPath}/${style}" rel="stylesheet" />
+            </#list>
+        </#if>
         <#if properties.styles?has_content>
             <#list properties.styles?split(' ') as style>
                 <link href="${url.resourcesPath}/${style}" rel="stylesheet" />
@@ -144,7 +149,7 @@
                         </#if>
                     </div>
                     <div class="fr-hidden ic-block-img-lg fr-col-lg-6 fr-p-4w fr-py-md-7w">
-                        <img src="${url.resourcesPath}/img/illustration-ic.svg" class="fr-fluid-img" alt="">
+                        <img src="${url.resourcesPath}/../../common/inclusion-connect/img/illustration-ic.svg" class="fr-fluid-img" alt="">
                     </div>
                 </div>
             </div>
