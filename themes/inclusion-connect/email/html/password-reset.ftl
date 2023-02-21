@@ -1,7 +1,4 @@
-<html>
-<body>
-${msg("greetingHtml")?no_esc}
+<#import "template.ftl" as layout>
+<@layout.emailLayout>
 ${msg("passwordResetBodyHtml",link, linkExpiration, realmName, linkExpirationFormatter(linkExpiration))?no_esc}
-${msg("closingHtml")?no_esc}
-</body>
-</html>
+</@layout.emailLayout>
