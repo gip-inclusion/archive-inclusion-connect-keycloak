@@ -185,6 +185,25 @@
                         </ul>
                     </div>
                 </div>
+                <div class="fr-footer__bottom">
+                    <ul class="fr-footer__bottom-list">
+                        <li class="fr-footer__bottom-item">
+                            <a class="fr-footer__bottom-link" href="${url.resourcesPath}/../../common/inclusion-connect/terms/Politique de confidentialité_20230302.pdf" target="_blank">
+                                Politique de confidentialité
+                            </a>
+                        </li>
+                        <li class="fr-footer__bottom-item">
+                            <a class="fr-footer__bottom-link" href="${url.resourcesPath}/../../common/inclusion-connect/terms/CGU_20230302.pdf" target="_blank">
+                                CGU
+                            </a>
+                        </li>
+                        <li class="fr-footer__bottom-item">
+                            <a class="fr-footer__bottom-link" href="${url.resourcesPath}/../../common/inclusion-connect/terms/Mentions légales_20230302.pdf" target="_blank">
+                                Mentions légales
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </footer>
     </body>
