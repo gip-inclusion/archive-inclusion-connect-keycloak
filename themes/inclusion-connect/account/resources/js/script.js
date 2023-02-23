@@ -50,43 +50,4 @@ function showPassword(element) {
   }
 }
 
-function parseQueryParams() {
-  var params = []
-  location.search.substring(1).split("&").forEach(item => { params[item.split("=")[0]] = item.split("=")[1] })
-  return params
-}
-
-function updateLoginField(user) {
-  if (user) {
-    document.getElementById("username").value = user;
-    document.getElementById("username").readOnly = true;
-  }
-}
-
-function updateRegisterFields(email, firstName, lastName) {
-  if (email) {
-    document.getElementById("email").value = email;
-    document.getElementById("email").readOnly = true;
-  }
-
-  if (firstName) {
-    document.getElementById("firstName").value = firstName;
-    document.getElementById("firstName").readOnly = true;
-  }
-
-  if (lastName) {
-    document.getElementById("lastName").value = lastName;
-    document.getElementById("lastName").readOnly = true;
-  }
-}
-
-var params = parseQueryParams();
-window.addEventListener("load", () => {
-  if (document.getElementById("kc-form-login") !== null) {
-    updateLoginField(params["email"]);
-  } else if (document.getElementsByClassName("register-form") !== []) {
-    updateRegisterFields(params["email"], params["firstName"], params["lastName"]);
-  }
-})
-
 // vim: sw=2 et ts=2 sts=2
