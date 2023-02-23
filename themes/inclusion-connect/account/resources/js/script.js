@@ -50,4 +50,16 @@ function showPassword(element) {
   }
 }
 
+// Fix "email already exists" error messages that also contains twice the usernameExistsMessage message bellow emailExistsMessage...
+window.addEventListener("load", () => {
+  var alerts = document.getElementsByClassName("fr-alert")
+  if (alerts != []) {
+    Array.prototype.forEach.call(alerts, function(alert) {
+      if (alert.innerHTML.includes("Cette adresse e-mail existe déjà sur Inclusion Connect, vous ne pouvez pas l’utiliser")) {
+        alert.innerHTML = "Cette adresse e-mail existe déjà sur Inclusion Connect, vous ne pouvez pas l’utiliser"
+      } 
+    })
+  }
+})
+
 // vim: sw=2 et ts=2 sts=2
