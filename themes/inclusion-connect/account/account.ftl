@@ -31,6 +31,10 @@
                 <input type="text" class="fr-input ${messagesPerField.printIfExists('email',properties.kcInputErrorClass!)}" id="email" name="email" autofocus value="${(account.email!'')}"/>
             </div>
 
+            <div class="fr-alert fr-alert--warning fr-mb-3w">
+                Êtes-vous sûr.e d’avoir correctement renseigné votre nouvelle adresse e-mail ? Quand vous aurez terminé, vous recevrez un e-mail de vérification à cette adresse, étape obligatoire pour ne pas bloquer votre compte.
+            </div>
+
             <div id="kc-form-buttons" class="submit">
                 <ul class="fr-btns-group">
                     <li>
