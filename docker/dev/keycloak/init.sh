@@ -21,6 +21,9 @@
     -s defaultLocale=fr \
     -s passwordPolicy="length(8) and digits(1) and upperCase(1) and specialChars(1)" \
     -s actionTokenGeneratedByUserLifespan=86400
+# Enable terms page
+/opt/keycloak/bin/kcadm.sh update realms/local/authentication/required-actions/terms_and_conditions -s enabled=true -s defaultAction=true
+
 # realm=local                       # Nom du royaume
 # enabled=true                      # Active le royaume
 # registrationAllowed=true          # Permet là des utilisateurs de créer des comptes
