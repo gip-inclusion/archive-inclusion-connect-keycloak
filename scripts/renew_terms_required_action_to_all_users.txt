@@ -1,0 +1,11 @@
+HOW TO : 
+========
+
+1) Go to clever cloud console, and copy psql addon connection URI 
+
+2) Connect to database :
+psql <connection_uri>
+
+3) launch command
+INSERT INTO user_required_action(user_id, required_action) SELECT id, 'terms_and_conditions' FROM user_entity WHERE realm_id != 'master' ON CONFLICT DO NOTHING;
+
