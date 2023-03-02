@@ -37,6 +37,23 @@
                 <script src="${script}" type="text/javascript"></script>
             </#list>
         </#if>
+
+        <!-- TALLY -->
+        <script async src="https://tally.so/widgets/embed.js"></script>
+        <script>
+        window.TallyConfig = {
+          "formId": "w4agYA",
+          "popup": {
+            "width": 600,
+            "emoji": {
+              "text": "👋",
+              "animation": "wave"
+            },
+            "doNotShowAfterSubmit": true
+          }
+        };
+        </script>
+
     </head>
 
     <body class="${properties.kcBodyClass!}">
