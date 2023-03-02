@@ -9,7 +9,7 @@
 
             <#if password.passwordSet>
                 <div class="${properties.kcFormGroupClass!}">
-                    <label for="password" class="fr-label">${msg("password")}</label>
+                    <label for="password" class="fr-label">Mot de passe actuel</label>
                     <input type="password" class="fr-input" id="password" name="password" autofocus autocomplete="current-password">
                 </div>
             </#if>
