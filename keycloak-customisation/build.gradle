@@ -1,0 +1,53 @@
+buildscript {
+  ext {
+    apachehttpComponentsVersion = '4.5.10'
+    assertJVersion = '3.14.0'
+    jBossLogginVersion = '3.4.1.Final'
+    junitVersion = '5.5.2'
+    keycloackVersion = '16.1.0'
+    lombokVersion = '1.18.20'
+    mockitoVersion = '3.2.4'
+  }
+}
+plugins {
+  // Apply the java plugin to add support for Java
+  id 'java'
+  id 'idea'
+  // Apply the application plugin to add support for building an application
+  id 'application'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+
+  implementation "org.keycloak:keycloak-core:${keycloackVersion}"
+  implementation "org.keycloak:keycloak-server-spi:${keycloackVersion}"
+  implementation "org.keycloak:keycloak-server-spi-private:${keycloackVersion}"
+  implementation "org.keycloak:keycloak-services:${keycloackVersion}"
+  implementation "org.jboss.logging:jboss-logging:${jBossLogginVersion}"
+  implementation "org.apache.httpcomponents:httpclient:${apachehttpComponentsVersion}"
+  compileOnly "org.projectlombok:lombok:${lombokVersion}"
+  annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+  // Use JUnit test framework
+  testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+  testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+  testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
+  testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+  testImplementation "org.assertj:assertj-core:${assertJVersion}"
+  testImplementation "com.github.tomakehurst:wiremock-jre8:2.25.1"
+}
+compileJava {
+  sourceCompatibility = 11
+  targetCompatibility = 11
+}
+test {
+  useJUnitPlatform()
+}
+
+
+archivesBaseName = 'pass-emploi-keycloak-customisation'
+version = '0.0.1-SNAPSHOT'
