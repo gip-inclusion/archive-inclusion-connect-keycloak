@@ -210,8 +210,8 @@ Cela peut être fait de deux manières :
 
 #### GET
 
-Un appel GET sur l'url `https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout?state=<STATE>&id_token_hint=<ID_TOKEN>`
-en réutilisant le **state** et le **id_token** (le paramètre **id_token_hint** permet de ne pas demander de confirmation).
+Un appel GET sur l'url `https://{hostname}/realms/{realm-name}/protocol/openid-connect/logout?id_token_hint=<ID_TOKEN>`
+en réutilisant **id_token** (le paramètre **id_token_hint** permet de ne pas demander de confirmation).
 
 #### Redirect
 
