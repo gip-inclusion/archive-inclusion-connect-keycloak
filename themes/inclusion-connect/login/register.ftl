@@ -10,7 +10,7 @@
                 <img src="${url.resourcesPath}/img/logo-inclusion-connect.svg" class="fr-responsive-img" alt="">
             </div>
             <h1 class="fr-h4">Renseignez votre mot de passe</h1>
-            <p class="fr-text--md fr-mb-3w">Vous pouvez réutiliser celui de votre compte les emplois de l’inclusion si vous le souhaitez</p>
+            <p class="fr-text--md fr-mb-3w">Vous pouvez réutiliser celui de votre compte les emplois de l’inclusion <strong>s'il répond aux critères de sécurité</strong></p>
             <hr class=fr-mt-2w>
         </div>
     <#elseif section = "form">
