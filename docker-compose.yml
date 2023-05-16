@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   postgres:
-    container_name: inclusion_connect_postgres
+    container_name: itou_inclusion_connect_postgres
     image: "postgres:14"
     env_file:
       - docker/dev/dev.env
@@ -11,13 +11,13 @@ services:
     ports:
       - 5433:5432
   smtp:
-    container_name: inclusion_connect_smtp
+    container_name: itou_inclusion_connect_smtp
     image: mailhog/mailhog
     ports:
       - 1025:1025
       - 8025:8025
   keycloak:
-    container_name: inclusion_connect_keycloak
+    container_name: itou_inclusion_connect_keycloak
     build:
       dockerfile: docker/dev/keycloak/Dockerfile
     volumes:
