@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li>
-                <a href="${url.resourcesPath}/../../common/inclusion-connect/terms/Politique de confidentialité_20230302.pdf" target="_blank">
+                <a href="${url.resourcesPath}/../../common/inclusion-connect/terms/Politique de confidentialité_20230512.pdf" target="_blank">
                     Politique de confidentialité
                 </a>
             </li>
