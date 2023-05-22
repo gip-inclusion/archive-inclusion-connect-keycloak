@@ -20,8 +20,15 @@
                             </#if>
                         </div>
                         <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
-                            <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
-                            <input tabindex="2" id="password" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('password',properties.kcInputErrorClass!)}" name="password" type="password" autocomplete="off" />
+                            <div class="fr-grid-row">
+                                <div class="fr-col">
+                                    <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
+                                </div>
+                                <div class="fr-col-auto">
+                                    <span class="fr-link ic-text-underline fr-icon-eye-line fr-link--icon-left" onclick="showPassword('password')" id="show-password">Afficher</span>
+                                </div>
+                            </div>
+                            <input tabindex="2" onKeyPress="passwordCheck('password')" onKeyUp="passwordCheck('password')" id="password" class="${properties.kcInputClass!} ${messagesPerField.printIfExists('password',properties.kcInputErrorClass!)}" name="password" type="password" autocomplete="off" />
                             <#if realm.resetPasswordAllowed>
                                 <p class="fr-mt-1w">
                                     <a href="${url.loginResetCredentialsUrl}" tabindex="5" class="fr-link">${msg("doForgotPassword")}</a>
