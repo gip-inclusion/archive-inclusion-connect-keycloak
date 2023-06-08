@@ -7,4 +7,4 @@
 
 ## Pour développer
 
-- [Comment lancer l'environement local](development.md)
+- [Comment lancer l'environnement local](development.md)
