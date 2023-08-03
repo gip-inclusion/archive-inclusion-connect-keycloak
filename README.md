@@ -4,6 +4,11 @@
 > Autrement dit c'est un service d'authentification qui permet à un utilisateur d'utiliser les mêmes
 > informations d'identification (email et mot de passe) pour accéder à plusieurs applications.
 
+## Attention - dépreciation
+
+Ce projet a été remplacé par le suivant : https://github.com/gip-inclusion/inclusion-connect.
+Nous utilsons à présent une application Django maison au lieu de Keycloak.
+
 ## Liste des services utilisant Inclusion Connect
 
 - [Les emplois de l'Inclusion](https://emplois.inclusion.beta.gouv.fr)
